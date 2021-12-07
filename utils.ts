@@ -1,9 +1,19 @@
-export async function readLines(path: string) {
+export async function readFile(path: string) {
   const input = await Deno.readTextFile(path);
 
+  return input.trim();
+}
+
+export async function readLines(path: string, separator = "\n") {
+  const input = await readFile(path);
+
   return input
-    .trim()
-    .split("\n");
+    .split(separator)
+    .map((l) => l.trim());
+}
+
+export async function readChunks(path: string) {
+  return await readLines(path, "\n\n");
 }
 
 export async function readNumberLines(path: string) {
