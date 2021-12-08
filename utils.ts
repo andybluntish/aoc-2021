@@ -29,3 +29,18 @@ export function sum(a: number, b: number) {
 export function sumList(list: number[]) {
   return list.reduce(sum, 0);
 }
+
+export function unique<T>(list: T[]): T[] {
+  return list.filter((value, index, self) => {
+    return self.indexOf(value) === index;
+  });
+}
+
+export function range(start: number, end: number): number[] {
+  const length = Math.abs(end - start) + 1;
+
+  return Array.from({ length }, (_, i) => {
+    if (end < start) return start - i;
+    return start + i;
+  });
+}
