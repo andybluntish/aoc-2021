@@ -29,7 +29,7 @@ Deno.test("ex 2", () => {
 });
 
 Deno.test("_rotateBoard: rotates a 2D array", () => {
-  const subject = [
+  const input = [
     [1, 2, 3, 4],
     [5, 6, 7, 8],
     [9, 10, 11, 12],
@@ -42,11 +42,11 @@ Deno.test("_rotateBoard: rotates a 2D array", () => {
     [4, 8, 12],
   ];
 
-  assertEquals(_rotateBoard(subject), expected);
+  assertEquals(_rotateBoard(input), expected);
 });
 
 Deno.test("_checkRow: returns a winning board row", () => {
-  const subject = [
+  const input = [
     [1, 2, 3, 4],
     [5, 6, 7, 8],
     [9, 10, 11, 12],
@@ -54,5 +54,5 @@ Deno.test("_checkRow: returns a winning board row", () => {
   const draw = [9, 3, 6, 8, 45, 0, 7, 12, 5];
   const expected = [5, 6, 7, 8];
 
-  assertEquals(_checkRow(subject, draw), expected);
+  assertEquals(_checkRow(input, draw), expected);
 });
