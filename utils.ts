@@ -1,10 +1,13 @@
+import { EOL } from "https://deno.land/std@0.117.0/fs/mod.ts";
+import { distinct } from "https://deno.land/std@0.117.0/collections/mod.ts";
+
 export async function readFile(path: string) {
   const input = await Deno.readTextFile(path);
 
   return input.trim();
 }
 
-export async function readLines(path: string, separator = "\n") {
+export async function readLines(path: string, separator = `${EOL}`) {
   const input = await readFile(path);
 
   return input
@@ -13,7 +16,7 @@ export async function readLines(path: string, separator = "\n") {
 }
 
 export async function readChunks(path: string) {
-  return await readLines(path, "\n\n");
+  return await readLines(path, `${EOL}${EOL}`);
 }
 
 export async function readNumberLines(path: string) {
@@ -31,9 +34,7 @@ export function sumList(list: number[]) {
 }
 
 export function unique<T>(list: T[]): T[] {
-  return list.filter((value, index, self) => {
-    return self.indexOf(value) === index;
-  });
+  return distinct(list);
 }
 
 export function range(start: number, end: number): number[] {

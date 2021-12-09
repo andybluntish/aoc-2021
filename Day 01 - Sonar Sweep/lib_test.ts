@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.116.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.117.0/testing/asserts.ts";
 import { ex1, ex2 } from "./lib.ts";
 
 const input = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
