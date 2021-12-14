@@ -134,7 +134,6 @@ export function ex1(input: string[]) {
 }
 
 export function ex2(input: string[]) {
-  console.log("...");
   const lines = parseInput(input);
   const results = lines
     .map(([signals, digits]) => {
